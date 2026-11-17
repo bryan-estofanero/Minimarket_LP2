@@ -1,0 +1,9 @@
+.env
+**/node_modules/
+**/target/
+**/dist/
+**/.angular/
+**/test-results/
+**/playwright-report/
+.venv/
+__pycache__/

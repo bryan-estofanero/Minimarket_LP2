@@ -1,0 +1,163 @@
+{
+  "realm": "minimarket",
+  "enabled": true,
+  "displayName": "Minimarket",
+  "loginTheme": "minimarket",
+  "internationalizationEnabled": true,
+  "supportedLocales": ["es", "en"],
+  "defaultLocale": "es",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": false,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "roles": {
+    "realm": [
+      {
+        "name": "ADMIN"
+      },
+      {
+        "name": "SUPERVISOR"
+      },
+      {
+        "name": "VENDEDOR"
+      },
+      {
+        "name": "COMPRADOR"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "minimarket-frontend",
+      "name": "Minimarket SPA",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "redirectUris": [
+        "http://localhost:4200/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:4200"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:4200/login"
+      },
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "profile",
+        "roles",
+        "basic",
+        "email"
+      ]
+    },
+    {
+      "clientId": "minimarket-backend",
+      "name": "Minimarket Backend Service",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "minimarket-backend-secret-2026",
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect"
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-minimarket-backend",
+      "enabled": true,
+      "emailVerified": true,
+      "serviceAccountClientId": "minimarket-backend",
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "view-users",
+          "query-users",
+          "query-groups",
+          "view-realm",
+          "manage-realm"
+        ]
+      }
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "Minimarket",
+      "email": "admin@minimarket.local",
+      "realmRoles": [
+        "ADMIN"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Minimarket2026!",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "supervisor",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Supervisor",
+      "lastName": "Minimarket",
+      "email": "supervisor@minimarket.local",
+      "realmRoles": [
+        "SUPERVISOR"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Minimarket2026!",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "cajero",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Cajero",
+      "lastName": "Minimarket",
+      "email": "cajero@minimarket.local",
+      "realmRoles": [
+        "VENDEDOR"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Minimarket2026!",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "comprador",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Comprador",
+      "lastName": "Minimarket",
+      "email": "comprador@minimarket.local",
+      "realmRoles": [
+        "COMPRADOR"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Minimarket2026!",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}
